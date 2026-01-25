@@ -3,17 +3,17 @@ if 7 > 5:
     print("Seven is greater than five!")
 
 #2
-if 2 < 3:
-    print("Two is less than three!")
+print("Python is fun!")
+print("Have a good day!")
+print("Happy weekend!")
 
 #3
 if 112 > 110:
     print("U are accepted to the KBTU!")
 
-#4
-if 5 > 4:
-    print("1")
-    print("Five is greater than four!")
+#4 semicolons (rarely used)
+print("How"); print("are"); print("you?")
+
 
 #5
 if 1 < 6:
