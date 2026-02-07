@@ -393,3 +393,85 @@ print(b.sum(3, 4))   # 44 (7 + 30 + 3 + 4)
 ### The `self` Parameter
 
 `self` refers to the current instance of the class. It must be the first parameter of every method (though you don't pass it when calling).
+
+### The `__init__` Method (Constructor)
+
+The `__init__` method is called automatically when creating a new object. It's used to initialize object attributes.
+
+### Inheritance
+
+**Inheritance** allows a class (child/subclass) to inherit attributes and methods from another class (parent/superclass).
+
+Benefits of inheritance:
+- **Code reuse**: Don't repeat code that's already in the parent class
+- **Extensibility**: Add new features to child classes
+- **Polymorphism**: Child classes can override parent methods
+
+```python
+class Person:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+    def show(self):
+        print(f'{self.name} - {self.surname}')
+
+
+class Student(Person):
+    def __init__(self, name, surname, gpa, faculty):
+        super().__init__(name, surname)  # Call parent constructor
+        self.gpa = gpa
+        self.faculty = faculty
+
+    def show(self):
+        super().show()  # Call parent method
+        print(f'{self.gpa} - {self.faculty}')
+
+
+a = Student("Aaa", "Bbb", 3.9, "FIT")
+a.show()
+# Output:
+# Aaa - Bbb
+# 3.9 - FIT
+
+b = Student("Bbb", "Ccc", 4.0, "FOGI")
+b.show()
+# Output:
+# Bbb - Ccc
+# 4.0 - FOGI
+```
+
+### The `super()` Function
+
+`super()` returns a proxy object that allows you to call methods from the parent class. This is essential for:
+- Calling the parent's `__init__` to initialize inherited attributes
+- Extending (not replacing) parent methods
+
+---
+
+## Conclusion
+
+### Key Takeaways
+
+**Functions**:
+- Functions are reusable blocks of code defined with `def`
+- Parameters can have default values, making them optional
+- `*args` collects extra positional arguments into a tuple
+- `**kwargs` collects extra keyword arguments into a dictionary
+- Functions can return multiple values using tuples
+- Use `global` keyword carefully to modify global variables inside functions
+- Recursion with memoization can dramatically improve performance
+
+**Lambda Functions**:
+- Lambda functions are concise, single-expression functions
+- Syntax: `lambda arguments: expression`
+- Commonly used with `map()`, `filter()`, and `sorted()`
+- Best for simple operations; use regular functions for complex logic
+
+**OOP**:
+- Classes are blueprints for creating objects
+- Objects have attributes (data) and methods (behavior)
+- `__init__` is the constructor method, called when creating objects
+- `self` refers to the current instance
+- Inheritance allows classes to inherit from other classes
+- `super()` is used to call parent class methods
